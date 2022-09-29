@@ -9,8 +9,8 @@ export default function Greetings() {
   const handleClick = () => {dispatch(getGreeting())}
   return (
     <div> 
-      <p> My Greetings: {greetings.message}</p>
-      <button onClick={handleClick}>Get Greetings</button>
+      <h1> My Greetings: Hello {greetings.message}</h1>
+      <button  onClick={handleClick}>Get Greetings</button>
     </div>
   )
 }
