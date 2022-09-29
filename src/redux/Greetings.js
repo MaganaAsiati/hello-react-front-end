@@ -1,10 +1,10 @@
-import getGreetings from "./api";
+import getGreetings from './api';
 
-const GREETINGS_REQUEST = "GET_GREETINGS_REQUEST";
-const GREETINGS_SUCCESS = "GET_GREETINGS_SUCCESS";
-const GREETINGS_ERROR = "GET_GREETINGS_ERROR";
+const GREETINGS_REQUEST = 'GET_GREETINGS_REQUEST';
+const GREETINGS_SUCCESS = 'GET_GREETINGS_SUCCESS';
+const GREETINGS_ERROR = 'GET_GREETINGS_ERROR';
 
-const initialState = { greetings: {}, error: "" };
+const initialState = { greetings: {}, error: '' };
 
 export function getGreetingsRequest() {
   return {
@@ -30,16 +30,16 @@ export function getGreeting() {
   return function (dispatch) {
     dispatch(getGreetingsRequest());
     getGreetings()
-      .then(function (data) {
+      .then((data) => {
         dispatch(getGreetingSuccess(data));
       })
-      .catch(function (err) {
+      .catch((err) => {
         getGreetingFailure(err);
       });
   };
 }
 
-const greetingsReducer = ( state = initialState , action) => {
+const greetingsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GREETINGS_REQUEST:
       return {
@@ -48,7 +48,7 @@ const greetingsReducer = ( state = initialState , action) => {
     case GREETINGS_SUCCESS:
       return {
         greetings: action.payload,
-        error: "",
+        error: '',
       };
     case GREETINGS_ERROR:
       return {
